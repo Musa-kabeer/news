@@ -28,7 +28,7 @@ const createNews = async (req, res, next) => {
 
 const getSearch = async (req, res, next) => {
      try {
-          const regex = new RegExp(`^${req.body.query}`, 'i');
+          const regex = new RegExp(`^${req.params.query}`, 'i');
           const data = await News.find({
                category: regex,
           });

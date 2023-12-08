@@ -6,7 +6,7 @@ const {
 } = require('../controller/new.controller');
 
 router.get('/', getAllNews);
-router.get('/search', getSearch);
+router.get('/search/:query', getSearch);
 router.post('/', createNews);
 
 module.exports = router;
