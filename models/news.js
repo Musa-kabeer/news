@@ -11,6 +11,11 @@ const newsSchema = new mongoose.Schema(
           imageUrl: String,
 
           title: String,
+
+          category: {
+               type: string,
+               required: true,
+          },
      },
      {
           timestamps: true,

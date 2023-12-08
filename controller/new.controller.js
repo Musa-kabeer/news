@@ -26,4 +26,20 @@ const createNews = async (req, res, next) => {
      }
 };
 
-module.exports = { getAllNews, createNews };
+const getSearch = async (req, res, next) => {
+     try {
+          const regex = new RegExp(`^${req.body.query}`, 'i');
+          const data = await News.find({
+               category: regex,
+          });
+
+          res.status(200).json({
+               status: 'success',
+               news: data,
+          });
+     } catch (err) {
+          res.status(500).json(err);
+     }
+};
+
+module.exports = { getAllNews, createNews, getSearch };
